@@ -8,6 +8,7 @@ def full_name(first_name, last_name)
 end
 
 def favorite_restaurant
+    self.reviews.max_by { |r| r.star_rating}
 end
 
 def add_review(restaurant, rating)
@@ -16,7 +17,7 @@ def add_review(restaurant, rating)
 end
 
 def delete_reviews(restaurant)
-    restaurant.destroy_all
+    destory= Review.destory_by(restaurant_id: restaurant.id)
 end
 
 end
